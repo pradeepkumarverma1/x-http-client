@@ -1,7 +1,11 @@
+import { getState } from "../../services/manage-state";
 import Input from "../ui/input";
 import RequestMethod from "./request-methods";
 
 const Navigation = () => {
+
+    const currentMethod = getState('reqMethod', (currentValue) => { console.log(currentValue) });
+    console.log(currentMethod);
 
     const nav = document.createElement('div');
     nav.className = 'p-5 w-full flex justify-between items-center';

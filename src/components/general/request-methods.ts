@@ -1,16 +1,18 @@
 import HttpRequestMenu from "../../menu/http-request-menu";
+import { useState } from "../../services/manage-state";
 import DropDown from "../ui/drop-down";
 
 const RequestMethod = () => {
 
-    const handleInputChange = (event: Event) => {
-        console.log((event.target as HTMLInputElement).value);
+    const handleOptionChange = (event: Event) => {
+        const option = (event.target as HTMLInputElement).value;
+        useState('reqMethod', option);
     }
 
     const requestMenu = DropDown({
         menu: HttpRequestMenu(),
         menuName: 'requestMethod',
-        onChange: handleInputChange
+        onChange: handleOptionChange
     });
 
     return requestMenu;
