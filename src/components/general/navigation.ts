@@ -13,7 +13,7 @@ const Navigation = () => {
     const requestMethods = RequestMethod();
     nav.appendChild(requestMethods);
 
-    const requestInput = Input({ type: 'text' });
+    const requestInput = Input({ type: 'text', placeholder: 'Enter the API URL' });
     nav.appendChild(requestInput);
 
     return nav;

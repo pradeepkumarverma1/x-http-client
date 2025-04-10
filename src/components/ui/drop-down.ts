@@ -7,6 +7,7 @@ interface DropDownProps {
 const DropDown = (props: DropDownProps) => {
     const dropDownElement = document.createElement('select');
     dropDownElement.name = props.menuName;
+    dropDownElement.className = 'border rounded-md shadow-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black';
 
     /**
      * Add the option menu
