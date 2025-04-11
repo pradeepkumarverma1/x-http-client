@@ -1,22 +1,33 @@
-import { getState } from "../../services/manage-state";
-import Input from "../ui/input";
+import InputField from "./input-field";
 import RequestMethod from "./request-methods";
+import SendButton from "./send-button";
 
 const Navigation = () => {
-
-    const currentMethod = getState('reqMethod', (currentValue) => { console.log(currentValue) });
-    console.log(currentMethod);
 
     const nav = document.createElement('div');
     nav.className = 'p-5 w-full flex justify-between items-center';
 
+    /**
+     * Get the dropdown with request methods
+     */
     const requestMethods = RequestMethod();
     nav.appendChild(requestMethods);
 
-    const requestInput = Input({ type: 'text', placeholder: 'Enter the API URL' });
+    /**
+     * Get the input field
+     */
+    const requestInput = InputField();
     nav.appendChild(requestInput);
+
+    /**
+     * Get the send request button
+     */
+    const sendButton = SendButton();
+    nav.appendChild(sendButton);
 
     return nav;
 }
 
-export default Navigation;
+const navigation = Navigation();
+
+export { navigation };

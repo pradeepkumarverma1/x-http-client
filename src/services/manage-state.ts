@@ -32,6 +32,15 @@ const getState = (key: string, fn?: Callback) => {
          * Store the callback mapped to the key
          */
         subscribers[key].push(fn);
+
+
+        /**
+         * If key already exists call the function and send value
+         */
+        if (state[key] !== undefined) {
+            fn(state[key]);
+        }
+
     }
 
     return state[key] ?? null;
