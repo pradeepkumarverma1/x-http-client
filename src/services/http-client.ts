@@ -2,7 +2,7 @@ interface HttpClientProps {
     url: string,
     method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE',
     headers?: {},
-    body?: null,
+    body?: null | string,
 }
 
 const HttpClient = async ({ url, method = 'GET', headers = {}, body = null }: HttpClientProps) => {
@@ -13,7 +13,7 @@ const HttpClient = async ({ url, method = 'GET', headers = {}, body = null }: Ht
             'Accept': 'application/json',
             ...headers,
         },
-        ...(body ? { body: JSON.stringify(body) } : {})
+        ...(body ? { body: typeof body === 'string' ? body : JSON.stringify(body) } : {})
     };
 
     const res = await fetch(url, options);

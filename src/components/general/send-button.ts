@@ -2,6 +2,7 @@ import { outputArea } from "../general/json-res-field";
 import HttpClient from "../../services/http-client";
 import { getState } from "../../services/manage-state";
 import Button from "../ui/button";
+import { bodyTextarea, headerTextarea } from "./get-textarea";
 
 const SendButton = () => {
 
@@ -15,7 +16,17 @@ const SendButton = () => {
         const url = getState('reqUrl');
 
         if (currentRequestMethod && url) {
-            const data = await HttpClient({ url: url, method: currentRequestMethod })
+
+            const headers = currentRequestMethod !== 'GET' ? headerTextarea.value : {};
+            const body = currentRequestMethod !== 'GET' ? bodyTextarea.value : null;
+
+            const data = await HttpClient({
+                url: url,
+                method: currentRequestMethod,
+                headers: headers,
+                body: body
+            });
+
             outputArea.innerText = JSON.stringify(data, null, 2);
         }
     }
