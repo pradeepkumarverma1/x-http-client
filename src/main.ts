@@ -1,3 +1,4 @@
+import { tabs } from './components/general/generate-tabs';
 import { outputArea } from './components/general/json-res-field';
 import { navigation } from './components/general/navigation';
 import MainLayout from './layouts/main-layout';
@@ -8,6 +9,7 @@ const mainElement = document.querySelector<HTMLDivElement>('#app')!;
 mainElement.appendChild(
   MainLayout(
     navigation,
+    tabs,
     outputArea
   ),
 );
