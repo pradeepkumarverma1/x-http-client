@@ -5,7 +5,7 @@ interface BadgeProps {
 
 const Badge = (props: BadgeProps) => {
     const badge = document.createElement('div');
-    badge.className = 'w-fit border p-1 rounded-md';
+    badge.className = 'inline-block w-fit px-2 py-1 rounded-md border border-blue-300 bg-blue-200 text-sm text-blue-800';
 
     /**
      * Define the properties

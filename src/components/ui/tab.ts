@@ -29,14 +29,16 @@ const TabGroup = () => {
      */
     const mainContainer = document.createElement('div');
     mainContainer.id = 'main-tab-container';
-    mainContainer.className = 'w-full p-2';
+    mainContainer.className = 'w-full bg-white rounded-md shadow-md';
+
 
     /**
      * Create the tab container to hold all the tabs
      */
     const tabContainer = document.createElement('div');
     tabContainer.id = 'tab-container';
-    tabContainer.className = 'flex gap-2';
+    tabContainer.className = 'flex gap-1 pt-1 px-1 bg-indigo-300 rounded-t-md';
+
 
     /**
      * Create the content area container to hold all the 
@@ -44,7 +46,8 @@ const TabGroup = () => {
      */
     const contentAreaContainer = document.createElement('div');
     contentAreaContainer.id = 'tab-content-area-container';
-    contentAreaContainer.className = 'w-full rounded-b-md';
+    contentAreaContainer.className = 'w-full rounded-b-md bg-white';
+
 
 
     /**
@@ -63,14 +66,15 @@ const TabGroup = () => {
         const tab = document.createElement('button');
         tab.innerText = props.text;
         tab.id = `tab-${tabIndex}`;
-        tab.className = `modern-tab cursor-pointer px-4 py-2 text-sm font-medium text-gray-600 bg-white border rounded-t-md hover:text-blue-600 hover:bg-gray-100 focus:outline-none`;
+        tab.className = `modern-tab cursor-pointer px-4 py-2 text-sm font-medium border border-white rounded-t-md transition-colors duration-150 
+        text-gray-600 bg-gray-900 text-white`;
 
         /**
          * Create the content area for the tab
          */
         const tabContentArea = document.createElement('div');
         tabContentArea.id = `tab-content-${tabIndex}`;
-        tabContentArea.className = `w-full h-[12rem] overflow-y-auto rounded-md bg-white shadow-sm tab-content-area ${tabIndex != 0 ? 'hidden' : ''}`;
+        tabContentArea.className = `w-full h-48 overflow-y-auto rounded-md bg-white tab-content-area transition-opacity duration-150 ${tabIndex !== 0 ? 'hidden' : ''}`;
 
         /**
          * If content area item has been provided
@@ -88,7 +92,7 @@ const TabGroup = () => {
          * Remove the border classes from all tabs except the first tab
          */
         if (tabIndex != 0) {
-            tab.classList.remove('border');
+            tab.classList.remove('bg-gray-900');
         }
 
         /**
@@ -100,12 +104,12 @@ const TabGroup = () => {
              * Get all the tabs and remove their borders
              */
             const allTabs = document.querySelectorAll('.modern-tab');
-            allTabs.forEach(tab => tab.classList.remove('border'));
+            allTabs.forEach(tab => tab.classList.remove('bg-gray-900'));
 
             /**
              * Add border to the current active tab
              */
-            tab.classList.add('border');
+            tab.classList.add('bg-gray-900');
 
             /**
              * Get all the content area to add hidden class to them 

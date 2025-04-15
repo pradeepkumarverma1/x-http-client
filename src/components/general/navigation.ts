@@ -5,7 +5,7 @@ import SendButton from "./send-button";
 const Navigation = () => {
 
     const nav = document.createElement('div');
-    nav.className = 'p-5 w-full flex justify-between items-center';
+    nav.className = 'py-5 w-full flex justify-between items-center gap-2';
 
     /**
      * Get the dropdown with request methods

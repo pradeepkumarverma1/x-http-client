@@ -1,5 +1,3 @@
-import { resBadge } from "../components/general/get-badges";
-
 interface HttpClientProps {
     url: string,
     method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE',
@@ -19,9 +17,10 @@ const HttpClient = async ({ url, method = 'GET', headers = {}, body = null }: Ht
     };
 
     /**
-     * Get the time when request was made
+     * Get the time when request was send
      */
     const startTime = performance.now();
+
 
     /**
      * Making the api call
@@ -29,18 +28,30 @@ const HttpClient = async ({ url, method = 'GET', headers = {}, body = null }: Ht
     const res = await fetch(url, options);
 
     /**
+     * Conver the response to json
+     */
+    const resJson = await res.json();
+
+    /**
      * Get the time when request received a response
      */
     const endTime = performance.now();
+
+    /**
+     * Calculate the time taken for the request to compelete
+     */
     const timeTaken = endTime - startTime;
 
     /**
-     * Update the status and response time for the request made
+     * Get response status code and text
      */
-    resBadge.statusBadge.innerText = `Status: ${res.status} ${res.statusText}`;
-    resBadge.timeBadge.innerText = `Time: ${timeTaken.toFixed(0)}ms`;
+    const resStatusCode = `${res.status} ${res.statusText}`;
 
-    return res.json();
+    return {
+        json: resJson,
+        status: resStatusCode,
+        time: timeTaken
+    };
 }
 
 export default HttpClient;

@@ -11,7 +11,7 @@ interface InputProps {
 const Input = (props: InputProps) => {
   const inputElem = document.createElement('input');
 
-  inputElem.className = 'border w-md rounded-md shadow-sm px-3 py-1 focus:outline-none focus:ring-2 focus:ring-black';
+  inputElem.className = 'w-full border-white max-w-2xl border border-gray-300 rounded-md bg-white px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500';
   inputElem.type = props.type;
 
   /**
