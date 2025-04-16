@@ -10,7 +10,7 @@ const Textarea = (props: TextareaProps) => {
 
     const textarea = document.createElement('textarea');
     textarea.name = props.name;
-    textarea.className = 'w-full h-full p-3';
+    textarea.className = 'w-full h-full p-3 bg-transparent text-white';
 
     /**
      * Define the properties

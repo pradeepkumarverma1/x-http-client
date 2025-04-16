@@ -1,11 +1,12 @@
 interface BadgeProps {
     text: string,
     id?: string,
+    classes?: string
 }
 
 const Badge = (props: BadgeProps) => {
     const badge = document.createElement('div');
-    badge.className = 'inline-block w-fit px-2 py-1 rounded-md border border-blue-300 bg-blue-200 text-sm text-blue-800';
+    badge.className = `${props.classes} inline-block w-fit px-2 py-1 rounded-md border shadow-md`;
 
     /**
      * Define the properties

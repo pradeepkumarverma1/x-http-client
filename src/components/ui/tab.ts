@@ -29,7 +29,7 @@ const TabGroup = () => {
      */
     const mainContainer = document.createElement('div');
     mainContainer.id = 'main-tab-container';
-    mainContainer.className = 'w-full bg-white rounded-md shadow-md';
+    mainContainer.className = 'w-full bg-transparent rounded-md shadow-md border border-gray-500 bg-white';
 
 
     /**
@@ -37,7 +37,7 @@ const TabGroup = () => {
      */
     const tabContainer = document.createElement('div');
     tabContainer.id = 'tab-container';
-    tabContainer.className = 'flex gap-1 pt-1 px-1 bg-indigo-300 rounded-t-md';
+    tabContainer.className = 'flex gap-1 p-2 bg-transparent rounded-t-md shadow-md';
 
 
     /**
@@ -46,7 +46,7 @@ const TabGroup = () => {
      */
     const contentAreaContainer = document.createElement('div');
     contentAreaContainer.id = 'tab-content-area-container';
-    contentAreaContainer.className = 'w-full rounded-b-md bg-white';
+    contentAreaContainer.className = 'w-full rounded-b-md bg-transparent';
 
 
 
@@ -66,15 +66,15 @@ const TabGroup = () => {
         const tab = document.createElement('button');
         tab.innerText = props.text;
         tab.id = `tab-${tabIndex}`;
-        tab.className = `modern-tab cursor-pointer px-4 py-2 text-sm font-medium border border-white rounded-t-md transition-colors duration-150 
-        text-gray-600 bg-gray-900 text-white`;
+        tab.className = `modern-tab cursor-pointer px-4 py-2 text-sm font-bold border-2 border-blue-500 rounded-md transition-colors duration-150 
+        text-gray-600 bg-blue-500 text-white`;
 
         /**
          * Create the content area for the tab
          */
         const tabContentArea = document.createElement('div');
         tabContentArea.id = `tab-content-${tabIndex}`;
-        tabContentArea.className = `w-full h-48 overflow-y-auto rounded-md bg-white tab-content-area transition-opacity duration-150 ${tabIndex !== 0 ? 'hidden' : ''}`;
+        tabContentArea.className = `w-full h-48 overflow-y-auto rounded-md bg-transparent tab-content-area transition-opacity duration-150 ${tabIndex !== 0 ? 'hidden' : ''}`;
 
         /**
          * If content area item has been provided
@@ -92,7 +92,8 @@ const TabGroup = () => {
          * Remove the border classes from all tabs except the first tab
          */
         if (tabIndex != 0) {
-            tab.classList.remove('bg-gray-900');
+            tab.classList.remove('bg-blue-500');
+            tab.classList.remove('text-white');
         }
 
         /**
@@ -104,12 +105,16 @@ const TabGroup = () => {
              * Get all the tabs and remove their borders
              */
             const allTabs = document.querySelectorAll('.modern-tab');
-            allTabs.forEach(tab => tab.classList.remove('bg-gray-900'));
+            allTabs.forEach(tab => {
+                tab.classList.remove('bg-blue-500');
+                tab.classList.remove('text-white');
+            });
 
             /**
              * Add border to the current active tab
              */
-            tab.classList.add('bg-gray-900');
+            tab.classList.add('bg-blue-500');
+            tab.classList.add('text-white');
 
             /**
              * Get all the content area to add hidden class to them 

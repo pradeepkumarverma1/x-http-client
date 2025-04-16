@@ -7,7 +7,7 @@ interface ButtonProps {
 
 const Button = (props: ButtonProps) => {
     const button = document.createElement('button');
-    button.className = 'cursor-pointer bg-blue-600 text-white border border-white rounded-md shadow-sm px-3 py-2 text-sm font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500';
+    button.className = 'cursor-pointer bg-purple-700 text-white rounded-lg shadow-md px-3 py-2 text-sm font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500';
 
     /**
      * Define the properties

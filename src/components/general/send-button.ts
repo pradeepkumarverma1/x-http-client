@@ -29,10 +29,15 @@ const SendButton = () => {
              * Show the processing to the end user
              */
             outputArea.innerHTML = `
-                <div class="flex justify-center items-center h-32">
-                    <h1 class="text-xl font-medium text-gray-600 animate-pulse">Loading...</h1>
-                </div>
+            <div class="flex flex-col justify-center items-center h-48 text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 mb-2 animate-spin text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                </svg>
+                <h1 class="text-lg font-medium animate-pulse">Loading</h1>
+            </div>
             `;
+
 
             btnRef.innerHTML = `
                 <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
